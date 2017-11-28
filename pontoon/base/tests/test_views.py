@@ -503,3 +503,4 @@ class UserRoleLogLocaleTest(TestCase):
 
     def test_remove_user_from_group(self):
         assert False
+
