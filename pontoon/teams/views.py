@@ -21,6 +21,10 @@ from pontoon.base.utils import require_AJAX
 from pontoon.contributors.views import ContributorsMixin
 
 
+from dj.debug import debug
+
+
+@debug
 def teams(request):
     """List all active localization teams."""
     locales = (
@@ -89,6 +93,7 @@ def ajax_update_info(request, locale):
     return HttpResponse(team_description)
 
 
+@debug
 @permission_required_or_403('base.can_manage_locale', (Locale, 'code', 'locale'))
 @transaction.atomic
 def ajax_permissions(request, locale):
