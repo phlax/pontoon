@@ -63,10 +63,11 @@ export default class CheckboxTable extends React.Component {
 
     handleCheckboxClick (evt) {
         // adds/removes paths for submission
+        const {name, checked: targetChecked} = evt.target;
         this.setState((prevState) => {
             let {checked} = prevState;
             checked = new Set(checked);
-            evt.target.checked ? checked.add(evt.target.name) : checked.delete(evt.target.name);
+            targetChecked ? checked.add(name) : checked.delete(name);
             return {checked};
         });
     }
